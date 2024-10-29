@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/pdcomponents.esm.js"></script>
+    <script nomodule src="/build/pdcomponents.js"></script>
+    <style>
+      body{
+        font-family: sans-serif;
+      }
+
+      .side-nav ul{
+        
+        list-style: none;
+      }
+      .side-nav li{
+        margin: 1rem 0;
+      }
+      .side-nav a{
+        
+        text-decoration: none;
+        color: black;
+      }    
+    </style>
+  </head>
+  <body>
+    <button id="btn-drawer">Open Side Drawer</button>
+    <pd-drawer title="Side Drawer"  >
+      <nav class="side-nav">
+        <ul>
+          <li><a href="/">First Link</a></li>
+          <li><a href="/">Second Link</a></li>
+          <li><a href="/">Third Link</a></li>
+        </ul>
+      </nav>
+    </pd-drawer>
+    <script>
+
+      const button = document.querySelector('#btn-drawer')
+      const drawer = document.querySelector('pd-drawer')
+      
+      button.addEventListener('click',()=>{
+        if(!drawer.opened){
+          //drawer.opened =true
+          drawer.open()
+        }
+      })
+    </script>
+  </body>
+</html>
