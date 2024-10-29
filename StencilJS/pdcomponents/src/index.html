@@ -27,8 +27,8 @@
     </style>
   </head>
   <body>
-    <button id="btn-drawer">Open Side Drawer</button>
-    <pd-drawer title="Side Drawer"  >
+    <!-- <button id="btn-drawer">Open Side Drawer</button>
+    <pd-drawer style="margin-bottom: 80px;" title="Side Drawer"  >
       <nav class="side-nav">
         <ul>
           <li><a href="/">First Link</a></li>
@@ -36,18 +36,22 @@
           <li><a href="/">Third Link</a></li>
         </ul>
       </nav>
-    </pd-drawer>
+    </pd-drawer> -->
+
+
+    <pd-country-language></pd-country-language>
+    <pd-country-list></pd-country-list>
     <script>
 
-      const button = document.querySelector('#btn-drawer')
-      const drawer = document.querySelector('pd-drawer')
+      // const button = document.querySelector('#btn-drawer')
+      // const drawer = document.querySelector('pd-drawer')
       
-      button.addEventListener('click',()=>{
-        if(!drawer.opened){
-          //drawer.opened =true
-          drawer.open()
-        }
-      })
+      // button.addEventListener('click',()=>{
+      //   if(!drawer.opened){
+      //     //drawer.opened =true
+      //     drawer.open()
+      //   }
+      // })
     </script>
   </body>
 </html>

@@ -6,13 +6,44 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface PdCountryLanguage {
+    }
+    interface PdCountryList {
+    }
     interface PdDrawer {
         "open": () => Promise<void>;
         "opened": boolean;
         "title": string;
     }
 }
+export interface PdCountryLanguageCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPdCountryLanguageElement;
+}
 declare global {
+    interface HTMLPdCountryLanguageElementEventMap {
+        "pdlangselected": any;
+    }
+    interface HTMLPdCountryLanguageElement extends Components.PdCountryLanguage, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPdCountryLanguageElementEventMap>(type: K, listener: (this: HTMLPdCountryLanguageElement, ev: PdCountryLanguageCustomEvent<HTMLPdCountryLanguageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPdCountryLanguageElementEventMap>(type: K, listener: (this: HTMLPdCountryLanguageElement, ev: PdCountryLanguageCustomEvent<HTMLPdCountryLanguageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPdCountryLanguageElement: {
+        prototype: HTMLPdCountryLanguageElement;
+        new (): HTMLPdCountryLanguageElement;
+    };
+    interface HTMLPdCountryListElement extends Components.PdCountryList, HTMLStencilElement {
+    }
+    var HTMLPdCountryListElement: {
+        prototype: HTMLPdCountryListElement;
+        new (): HTMLPdCountryListElement;
+    };
     interface HTMLPdDrawerElement extends Components.PdDrawer, HTMLStencilElement {
     }
     var HTMLPdDrawerElement: {
@@ -20,15 +51,24 @@ declare global {
         new (): HTMLPdDrawerElement;
     };
     interface HTMLElementTagNameMap {
+        "pd-country-language": HTMLPdCountryLanguageElement;
+        "pd-country-list": HTMLPdCountryListElement;
         "pd-drawer": HTMLPdDrawerElement;
     }
 }
 declare namespace LocalJSX {
+    interface PdCountryLanguage {
+        "onPdlangselected"?: (event: PdCountryLanguageCustomEvent<any>) => void;
+    }
+    interface PdCountryList {
+    }
     interface PdDrawer {
         "opened"?: boolean;
         "title"?: string;
     }
     interface IntrinsicElements {
+        "pd-country-language": PdCountryLanguage;
+        "pd-country-list": PdCountryList;
         "pd-drawer": PdDrawer;
     }
 }
@@ -36,6 +76,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "pd-country-language": LocalJSX.PdCountryLanguage & JSXBase.HTMLAttributes<HTMLPdCountryLanguageElement>;
+            "pd-country-list": LocalJSX.PdCountryList & JSXBase.HTMLAttributes<HTMLPdCountryListElement>;
             "pd-drawer": LocalJSX.PdDrawer & JSXBase.HTMLAttributes<HTMLPdDrawerElement>;
         }
     }
